@@ -1,0 +1,16 @@
+---
+services:
+  duplicati:
+    image: lscr.io/linuxserver/duplicati:latest
+    container_name: duplicati
+    environment:
+      - PUID=1002
+      - PGID=1002
+      - TZ=America/Chicago
+    volumes:
+      - /home/xvr/Docker/duplicati/config:/config
+      - /media/xvr/backup:/backups #external hard drive
+      - /:/source #root directory
+    ports:
+      - 8200:8200
+    restart: unless-stopped
