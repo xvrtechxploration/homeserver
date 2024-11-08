@@ -1,0 +1,29 @@
+---
+services:
+  app:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    ports:
+      - '80:80' #http
+      - '81:81' #web GUI
+      - '443:443' #https
+    environment:
+      DB_MYSQL_HOST: "db"
+      DB_MYSQL_PORT: 3306 #db port
+      DB_MYSQL_USER: "youruser" #match values to db and json
+      DB_MYSQL_PASSWORD: "yourpassword"
+      DB_MYSQL_NAME: "npm"
+    volumes:
+      - /home/xvr/docker/nginx/data:/data #nginx data
+      - /home/xvr/docker/nginx/letsencrypt:/etc/letsencrypt #letsencrypt certs
+  db:
+    image: 'jc21/mariadb-aria:latest'
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 'yourpassword'
+      MYSQL_DATABASE: 'npm'
+      MYSQL_USER: 'youruser'
+      MYSQL_PASSWORD: 'yourpassword'
+    volumes:
+      #- ./data/mysql:/var/lib/mysql #if separate folder for db
+      - /home/xvr/docker/nginx/mysql:/var/lib/mysql #choose desired db location, i kept in nginx directory
