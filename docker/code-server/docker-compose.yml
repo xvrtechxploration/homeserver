@@ -1,0 +1,18 @@
+---
+services:
+  code-server:
+    image: lscr.io/linuxserver/code-server:latest
+    container_name: code-server
+    environment:
+      - PUID=1002 #change for you PUIG & PGID (run id command)
+      - PGID=1002
+      - TZ=America/Chicago #set to your timezone
+      - PASSWORD=YOURPASSWORD #replace with your password
+      - SUDO_PASSWORD=YOURPASSWORD #replace
+      - DEFAULT_WORKSPACE=/config/workspace #where code server opens for default workspace
+    volumes:
+      - /home/xvr/Docker/code-server/config:/config
+      - /home/xvr:/config/workspace #workspace volume 
+    ports:
+      - 8443:8443 #can change access port for GUI
+    restart: unless-stopped
