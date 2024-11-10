@@ -27,14 +27,14 @@ sudo apt install rpi-imager
 
 - Insert SD card (or USB drive)
 - Open the Raspberry Pi Imager after installing
-![alt text](/homeserver/Raspberry-Pi/images/rpiimager.PNG)
+![alt text](Raspberry-Pi/images/rpiimager.PNG)
 - Select the Raspberry Pi model/device 
-![alt text](homeserver/Raspberry-Pi/images/selectpi.PNG)
+![alt text](Raspberry-Pi/images/selectpi.PNG)
 - Clink on "Choose OS" and select "Other general-purpose OS"
 - Select Ubuntu and the the desired version that best suits your needs.
   - In my case, I selected Ubuntu Desktop 24.04.1 LTS (64-bit)
   - I wanted to explore the Desktop edition a bit so I selected that. You can install Ubuntu server and add a desktop GUI later.
-![alt text](/homeserver/Raspberry-Pi/images/selectubuntu.PNG)
+![alt text](Raspberry-Pi/images/selectubuntu.PNG)
 - Click "Choose storage" and select your SD card.
 - Click next to start the flashing process.
 - The installer will ask if you are sure you want to erase all the data on the SD. Be sure you have the correct SD card selected, and click "YES" to continue.
